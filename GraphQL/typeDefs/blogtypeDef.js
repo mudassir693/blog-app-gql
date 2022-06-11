@@ -9,7 +9,10 @@ const typeDefs = gql`
         TerminalCommands: [String]!,
         Code: [String]!,
         Peragraphs:[String]!,
-        FinalLine: String
+        FinalLine: String,
+        Views: Int,
+        Likes:Int,
+        createdAt: String
     },
 
     #Query   
@@ -22,6 +25,7 @@ const typeDefs = gql`
         updateBlog(id:String,TitleImage: String, Title: String, Introduction: String, TerminalCommands: [String],Code: [String],Peragraphs:[String],FinalLine: String): Blog!
         AddBlog(TitleImage: String, Title: String, Introduction: String, TerminalCommands: [String],Code: [String],Peragraphs:[String],FinalLine: String): Blog!
         deleteBlog(id:String):Blog!
+        addLike(id:String):Blog!
     }
 
 

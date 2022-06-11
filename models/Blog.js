@@ -21,6 +21,12 @@ const blogSchema = new mongoose.Schema({
     },
     FinalLine:{
         type:String
+    },
+    Views:{
+        type:Number
+    },
+    Likes:{
+        type:Number
     }
 },{
     timestamps:true
