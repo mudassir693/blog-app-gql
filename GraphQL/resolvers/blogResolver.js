@@ -25,10 +25,29 @@ const resolver = {
         }
     },
     Mutation: {
+        upgradeBlogTypeDefs:async()=>{
+            const resp =await Blog.find()
+            resp.forEach(async eachblog=>{
+                eachblog.LikeBy=[]
+                eachblog.Likes=0
+                const resp2 = await Blog.findByIdAndUpdate(eachblog._id,{$set:eachblog},{new:true})
+            })
+
+            return 'Done'
+        },
+        removeLike:async (parent,args)=>{
+            const {id,readerId} = args
+            const resp = await Blog.findById(id)
+            resp.Likes = resp.Likes-1
+            resp.LikeBy.filter(reader_Id=>reader_Id!=readerId)
+            const resp2 = await Blog.findByIdAndUpdate(id,{$set:resp},{new:true})
+            return resp2
+        },
         addLike:async(parent,args)=>{
-            const {id} = args
+            const {id,readerId} = args
             const resp = await Blog.findById(id)
             resp.Likes = resp.Likes+1
+            resp.LikeBy.push(readerId)
             const resp2 = await Blog.findByIdAndUpdate(id,{$set:resp},{new:true})
             return resp2 
         },

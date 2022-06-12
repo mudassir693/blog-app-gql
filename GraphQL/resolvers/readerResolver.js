@@ -15,10 +15,15 @@ const readerResolver = {
     Mutation: {
         addReader:async(parent,args)=>{
             console.log(args);
-            const newReader = new Reader(args)
-
-            const resp = await newReader.save()
-            return resp
+            const readerPresent = await Reader.findOne({Email:args.Email})
+            if(readerPresent){
+                return readerPresent
+            }
+            else{
+                const newReader = new Reader(args)
+                const resp = await newReader.save()
+                return resp
+            }
         }
     }
 } 

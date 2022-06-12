@@ -27,6 +27,9 @@ const blogSchema = new mongoose.Schema({
     },
     Likes:{
         type:Number
+    },
+    LikeBy:{
+        type:Array
     }
 },{
     timestamps:true
