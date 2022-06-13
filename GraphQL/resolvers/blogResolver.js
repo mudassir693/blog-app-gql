@@ -39,7 +39,8 @@ const resolver = {
             const {id,readerId} = args
             const resp = await Blog.findById(id)
             resp.Likes = resp.Likes-1
-            resp.LikeBy.filter(reader_Id=>reader_Id!=readerId)
+            console.log('here is keera: ',resp.LikeBy.filter(reader_Id=>reader_Id !== readerId));
+            resp.LikeBy = resp.LikeBy.filter(reader_Id=>reader_Id !== readerId)
             const resp2 = await Blog.findByIdAndUpdate(id,{$set:resp},{new:true})
             return resp2
         },
