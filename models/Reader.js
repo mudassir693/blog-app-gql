@@ -6,7 +6,11 @@ const readerSchema = new mongoose.Schema({
     },
     Email:{
         type:String
-    }
+    },
+    Admin:{
+        type:Boolean,
+        default:false
+    },
 },{
     timestamps:true
 })

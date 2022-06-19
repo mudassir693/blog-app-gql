@@ -6,6 +6,7 @@ const readerTypeDef = gql`
         _id: String,
         Name: String!,
         Email: String!
+        Admin:Boolean!
         createdAt:String!
     },
 
@@ -15,7 +16,8 @@ const readerTypeDef = gql`
     },
 
     type Mutation {
-       addReader(Name:String,Email:String):Reader!
+       addReader(Name:String,Email:String,Admin:Boolean):Reader!
+       AddAdmin:[Reader]!
     }
 `
 

@@ -13,6 +13,22 @@ const readerResolver = {
         }
     },
     Mutation: {
+        AddAdmin:async(parent,args)=>{
+            const respReader = await Reader.find()
+
+            respReader.forEach(async eachReader=>{
+                const resp = await Reader.findById(eachReader._id)
+                if(resp.Email == 'mudassirsiddiqui27@gmail.com'){
+                    resp.Admin = true
+                    const updResp = await Reader.findByIdAndUpdate(resp._id,{$set:resp},{new:true})
+                } else {
+                    resp.Admin = false
+                    const updResp = await Reader.findByIdAndUpdate(resp._id,{$set:resp},{new:true})
+                }
+            })
+
+            return respReader
+        },
         addReader:async(parent,args)=>{
             console.log(args);
             const readerPresent = await Reader.findOne({Email:args.Email})
