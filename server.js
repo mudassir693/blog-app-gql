@@ -1,9 +1,9 @@
 const dotenv = require('dotenv');
 dotenv.config()
 const { makeExecutableSchema } = require('graphql-tools')
-const { ApolloServer } = require('apollo-server-express');
-const typeDefs = require('./GraphQL/typeDefs/index')
-const resolvers = require('./GraphQL/resolvers/index')
+// const { ApolloServer } = require('apollo-server-express');
+// const typeDefs = require('./GraphQL/typeDefs/index')
+// const resolvers = require('./GraphQL/resolvers/index')
 
 const express = require('express')
 
@@ -21,11 +21,11 @@ connectDB()
 
 
 
-const server = new ApolloServer(
-    { typeDefs, resolvers}
-)
+// const server = new ApolloServer(
+//     { typeDefs, resolvers}
+// )
     
-server.applyMiddleware({app})
+// server.applyMiddleware({app})
     
 // routes
 
