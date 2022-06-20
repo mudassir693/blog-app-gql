@@ -38,6 +38,10 @@ app.get('/',async(req,res)=>{
     }
 })
 
-app.listen(5000,()=>{
-    console.log(`server is running`)
+const port = process.env.PORT
+
+console.log('this is port: ',port);
+
+app.listen(port,()=>{
+    console.log(`server is running on port: ${port}`)
 })
