@@ -6,7 +6,7 @@ dotenv.config()
 
 const express = require('express')
 
-const connectDB = require('./config/DB_Config')
+// const connectDB = require('./config/DB_Config')
 
 
 const app = express()
@@ -16,7 +16,7 @@ const app = express()
 
 // db connection settings
 // const schema = makeExecutableSchema({ typeDefs, resolvers });
-connectDB()
+// connectDB()
 
 
 
