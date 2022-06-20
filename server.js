@@ -1,6 +1,5 @@
 const dotenv = require('dotenv');
 dotenv.config()
-const { makeExecutableSchema } = require('graphql-tools')
 // const { ApolloServer } = require('apollo-server-express');
 // const typeDefs = require('./GraphQL/typeDefs/index')
 // const resolvers = require('./GraphQL/resolvers/index')
@@ -40,7 +39,6 @@ app.get('/',async(req,res)=>{
 
 const port = process.env.PORT
 
-console.log('this is port: ',port);
 
 app.listen(port,()=>{
     console.log(`server is running on port: ${port}`)
