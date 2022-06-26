@@ -5,16 +5,17 @@ const typeDefs = gql`
         _id:String!,
         TitleImage: String!,
         Title: String!,
-        Introduction: String,
-        TerminalCommands: [String]!,
-        Code: [String]!,
-        Peragraphs:[String]!,
+        Introduction: String!,
+        Body: [String]
         FinalLine: String,
         Views: Int,
         Likes:Int,
         LikeBy:[String]
         createdAt: String,
     },
+
+    
+
 
     #Query   
     type Query {
@@ -23,8 +24,8 @@ const typeDefs = gql`
     },
 
     type Mutation {
-        updateBlog(id:String,TitleImage: String, Title: String, Introduction: String, TerminalCommands: [String],Code: [String],Peragraphs:[String],FinalLine: String): Blog!
-        AddBlog(TitleImage: String, Title: String, Introduction: String, TerminalCommands: [String],Code: [String],Peragraphs:[String],FinalLine: String): Blog!
+        updateBlog(id:String,TitleImage: String, Title: String, Introduction: String, Body: [String] ,FinalLine: String): Blog!
+        AddBlog(TitleImage: String, Title: String, Introduction: String, Body: [String],FinalLine: String): Blog!
         deleteBlog(id:String):Blog!
         addLike(id:String,readerId:String):Blog!
         removeLike(id:String,readerId:String):Blog!

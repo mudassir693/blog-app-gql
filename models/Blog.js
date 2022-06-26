@@ -10,15 +10,7 @@ const blogSchema = new mongoose.Schema({
     Introduction:{
         type:String
     },
-    TerminalCommands:{
-        type:Array
-    },
-    Code:{
-        type:Array
-    },
-    Peragraphs:{
-        type:Array
-    },
+    Body: Array,
     FinalLine:{
         type:String
     },

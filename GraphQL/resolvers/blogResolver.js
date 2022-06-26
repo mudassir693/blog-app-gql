@@ -53,7 +53,7 @@ const resolver = {
             return resp2 
         },
         AddBlog: async(parent,args)=>{
-            console.log(args)
+            console.log('Blog is now upd: ',args)
             const newBlog = new Blog(args)
             const resp = await newBlog.save()
             return resp
