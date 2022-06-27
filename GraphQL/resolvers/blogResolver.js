@@ -60,7 +60,8 @@ const resolver = {
         },
         updateBlog:async(parent,args)=>{
             const reqId = args.id
-            const {id,...other} = args 
+            const {id,...other} = args
+            console.log(other) 
             const resp = await Blog.findByIdAndUpdate(reqId,{$set:other},{new:true})
 
             return resp
