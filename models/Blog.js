@@ -4,6 +4,9 @@ const blogSchema = new mongoose.Schema({
     TitleImage:{
         type:String
     },
+    BlogId:{
+        type:String
+    },
     Title:{
         type:String
     },
@@ -21,6 +24,13 @@ const blogSchema = new mongoose.Schema({
         type:Number
     },
     LikeBy:{
+        type:Array
+    },
+    PublishDate:{
+        type: Date,
+        default: new Date().toDateString()
+    },
+    Comments:{
         type:Array
     }
 

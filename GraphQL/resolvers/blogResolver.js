@@ -73,6 +73,28 @@ const resolver = {
             } catch (error) {
                 return error
             }
+        },
+        addBlockIdAndCommentArrayToLastMigration: async()=>{
+            try {
+                const Array = await Blog.find()
+                let newArray=[]
+                Array.forEach(async (eachEle)=>{
+                    if(eachEle.Title=='GraphQL'){
+                        eachEle.BlogId = 'GQL-1001'
+                    }else{
+                        eachEle.BlogId = 'test-1001'
+                    }
+                    eachEle.Comments = []
+                    eachEle.PublishDate = new Date().toDateString() 
+
+                    const resp = await Blog.findByIdAndUpdate(eachEle._id,{$set:eachEle},{new:true})
+                    newArray.push(resp)
+                })
+
+                return newArray
+            } catch (error) {
+                console.log('error: ',error);
+            }
         }
     }
 }

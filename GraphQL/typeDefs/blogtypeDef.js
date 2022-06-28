@@ -3,6 +3,7 @@ const {gql} = require('apollo-server-express')
 const typeDefs = gql`
     type Blog {
         _id:String!,
+        BlogId:String,
         TitleImage: String!,
         Title: String!,
         Introduction: String!,
@@ -10,7 +11,9 @@ const typeDefs = gql`
         FinalLine: String,
         Views: Int,
         Likes:Int,
-        LikeBy:[String]
+        PublishDate: String,
+        LikeBy:[String],
+        Comments:[String]
         createdAt: String,
     },
 
@@ -25,11 +28,13 @@ const typeDefs = gql`
 
     type Mutation {
         updateBlog(id:String,TitleImage: String, Title: String, Introduction: String, Body: [String], FinalLine: String): Blog!
-        AddBlog(TitleImage: String, Title: String, Introduction: String, Body: [String] ,FinalLine: String): Blog!
+        AddBlog(TitleImage: String, BlogId:String, Title: String, Introduction: String, Body: [String] ,FinalLine: String): Blog!
         deleteBlog(id:String):Blog!
         addLike(id:String,readerId:String):Blog!
         removeLike(id:String,readerId:String):Blog!
         upgradeBlogTypeDefs: String
+        #migration
+        addBlockIdAndCommentArrayToLastMigration: [Blog]
     }
 
 
