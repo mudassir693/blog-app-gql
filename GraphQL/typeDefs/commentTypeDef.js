@@ -17,6 +17,7 @@ const typeDef = gql`
     },
     type Mutation {
         addComment(BlogId: String, ReaderId:String, Content:String): Comment
+        removeUnnacessoryComment: String
     }
 `
 

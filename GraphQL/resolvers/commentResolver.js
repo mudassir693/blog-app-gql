@@ -29,6 +29,14 @@ const resolvers = {
 
             const resp = await newComment.save()
             return resp;
+        },
+        removeUnnacessoryComment: async()=>{
+            const resp = await Comment.find({Content:null})
+            console.log(resp)
+            resp.forEach(async each=>{
+                await Comment.findByIdAndRemove(each._id)
+            })
+            return 'in progress'
         }
     }
 }
