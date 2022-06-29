@@ -12,6 +12,14 @@ const resolvers = {
             const {id} = args
             const resp = await Comment.findById(id)
             return resp
+        },
+        getAllCommentFromEachBlog: async(parent,args)=>{
+            try {
+                const resp = await Comment.find({BlogId: args.id})
+                return resp
+            } catch (error) {
+                console.log('error is : ', error)
+            }
         }
     },
     Mutation: {

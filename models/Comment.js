@@ -11,8 +11,8 @@ const schema = new mongoose.Schema({
         type: String,
     },
     PublishDate:{
-        type: Date,
-        default: new Date().toDateString()
+        type: String,
+        default: new Date()
     }
 })
 

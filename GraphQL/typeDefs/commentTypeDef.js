@@ -13,6 +13,7 @@ const typeDef = gql`
     type Query {
         getAllComents: [Comment],
         getCommentById(id:String):Comment
+        getAllCommentFromEachBlog(id: String): [Comment]
     },
     type Mutation {
         addComment(BlogId: String, ReaderId:String, Content:String): Comment

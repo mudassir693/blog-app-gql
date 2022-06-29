@@ -27,8 +27,8 @@ const typeDefs = gql`
     },
 
     type Mutation {
-        updateBlog(id:String,TitleImage: String, Title: String, Introduction: String, Body: [String], FinalLine: String): Blog!
-        AddBlog(TitleImage: String, BlogId:String, Title: String, Introduction: String, Body: [String] ,FinalLine: String): Blog!
+        updateBlog(id:String,TitleImage: String, Title: String, Introduction: String, Body: [String], Comments:[String], FinalLine: String): Blog!
+        AddBlog(TitleImage: String, BlogId:String, Title: String, Introduction: String, Body: [String], Comments:[String] ,FinalLine: String): Blog!
         deleteBlog(id:String):Blog!
         addLike(id:String,readerId:String):Blog!
         removeLike(id:String,readerId:String):Blog!
