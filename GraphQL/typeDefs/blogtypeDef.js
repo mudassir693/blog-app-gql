@@ -24,6 +24,7 @@ const typeDefs = gql`
     type Query {
         getAllBlogs:[Blog!]!
         getBlogById(id:String): Blog!
+        getLikedBlog(id:String): [Blog!]!
     },
 
     type Mutation {

@@ -22,6 +22,17 @@ const resolver = {
             
             const resp2 = await Blog.findByIdAndUpdate(args.id,{$set:resp},{new:true})
             return resp2
+        },
+
+        getLikedBlog: async(parent,args)=>{
+            try {
+                const {id} = args
+                const resp = await Blog.find({LikeBy:{$in:id}})
+
+                return resp
+            } catch (error) {
+                console.log('error: ',error);
+            }
         }
     },
     Mutation: {
