@@ -27,7 +27,7 @@ const blogSchema = new mongoose.Schema({
         type:Array
     },
     PublishDate:{
-        type: Date,
+        type: String,
         default: new Date().toDateString()
     },
     Comments:{

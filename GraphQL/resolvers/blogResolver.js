@@ -90,13 +90,13 @@ const resolver = {
                 const Array = await Blog.find()
                 let newArray=[]
                 Array.forEach(async (eachEle)=>{
-                    if(eachEle.Title=='GraphQL'){
-                        eachEle.BlogId = 'GQL-1001'
-                    }else{
-                        eachEle.BlogId = 'test-1001'
-                    }
-                    eachEle.Comments = []
-                    eachEle.PublishDate = new Date().toDateString() 
+                    // if(eachEle.Title=='GraphQL'){
+                    //     eachEle.BlogId = 'GQL-1001'
+                    // }else{
+                    //     eachEle.BlogId = 'test-1001'
+                    // }
+                    // eachEle.Comments = []
+                    eachEle.PublishDate = new Date(1656349220).toDateString() 
 
                     const resp = await Blog.findByIdAndUpdate(eachEle._id,{$set:eachEle},{new:true})
                     newArray.push(resp)
